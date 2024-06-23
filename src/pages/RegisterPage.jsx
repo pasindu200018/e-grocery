@@ -1,9 +1,10 @@
-import loginimage from "../assets/login-side-image.jpg";
-import loginBg from "../assets/loginbg.jpg";
+import { Link } from "react-router-dom";
+import regImage from "../assets/reg-sife-image.jpg";
+import regBg from "../assets/loginbg.jpg";
 
 const RegisterPage = () => {
   return (
-    <div className=" w-full  p-1 h-screen md:h-full" style={{ backgroundImage: `url(${loginBg})` }}>
+    <div className=" w-full  p-1 min-h-screen md:h-full bg-cover" style={{ backgroundImage: `url(${regImage})` }}>
       <div className="max-w-7xl  md:mx-auto overflow-hidden my-10 mx-3 rounded-[10px] py-5 bg-white drop-shadow-xl">
         <div className="w-full   grid md:grid-cols-2 font-roboto items-center">
           <div className="md:p-20 p-5">
@@ -42,15 +43,15 @@ const RegisterPage = () => {
               </p>
             </div>
             <button className="bg-primary  text-white w-full h-[50px] rounded-lg   font-semibold text-[24px]">
-              Login
+              Register
             </button>
             <p className="text-[16px] mt-3 font-semibold">
-              Already have an account <span className="text-primary">Log in</span>
+              Already have an account <Link to='/login' className="text-primary">Log in</Link>
             </p>
           </div>
 
           <div className="w-full h-full hidden md:block">
-            <img className="w-full h-full object-cover scale-105" src={loginimage} alt="login" />
+            <img className="w-full h-full object-cover scale-105" src={regImage} alt="login" />
           </div>
         </div>
       </div>
