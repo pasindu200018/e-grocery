@@ -48,7 +48,7 @@ const HomePage = () => {
 
 
         </div>
-        <div className="flex justify-center mt-10"><a className="  md:text-[24px]  my-5  font-bold cursor-pointer">View All</a></div>
+        <div className="flex justify-center mt-10"><a className="  md:text-[24px]  my-5  font-bold cursor-pointer hover:text-primary transition-all">View All</a></div>
       </div>
     </>
   );

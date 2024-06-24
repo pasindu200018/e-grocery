@@ -5,7 +5,7 @@ import { FiLogOut } from "react-icons/fi";
 
 import { LuUser2 } from "react-icons/lu";
 import { RiShoppingCartLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navbar = () => {
         <img src={logo} className="h-5" />
 
         <div className=" gap-5 items-center hidden sm:flex">
-          <RiShoppingCartLine size={20} />
+          <RiShoppingCartLine size={20} className="hover:text-primary transition-all"/>
           <div className="flex gap-2 items-center">
             <LuUser2 size={20} />
             <p className="font-semibold">Imalka Gayani</p>
