@@ -5,14 +5,17 @@ import { FiLogOut } from "react-icons/fi";
 
 import { LuUser2 } from "react-icons/lu";
 import { RiShoppingCartLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="fixed w-full bg-white bg-opacity-35">
+    <div className="fixed w-full bg-white bg-opacity-35 z-10">
       <div className="max-w-7xl mx-auto justify-between flex p-5">
+        <Link to="/">
         <img src={logo} className="h-5" />
+        </Link>
 
         <div className=" gap-5 items-center hidden sm:flex">
           <RiShoppingCartLine size={20} className="hover:text-primary transition-all"/>

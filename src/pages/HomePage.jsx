@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import headerBg from "../assets/header.jpg";
 import headerBg2 from "../assets/header2.jpg";
 
@@ -17,9 +18,11 @@ const HomePage = () => {
           <p className="md:text-[36px] text-[24px] mt-2 font-semibold">
             TECH-RAISED, HEALTHY TURKEY GROCERY DELIVERED TO YOUR DOOR
           </p>
+          <Link to="/product">
           <button className="bg-primary text-white text-sm py-3 px-6 mt-5 rounded-full font-bold">
             View Products
           </button>
+          </Link>
         </div>
         <div className="md:p-5 md:order-2">
           <img src={headerBg2} className="object-cover rounded-xl" alt="" />
@@ -27,7 +30,7 @@ const HomePage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <h1 className="md:text-3xl text-xl font-semibold  text-center md:my-10 my-5">
+        <h1 className="md:text-3xl text-xl font-semibold  text-center md:my-10 my-5 opacity-65">
           Our Products
         </h1>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -48,7 +51,7 @@ const HomePage = () => {
 
 
         </div>
-        <div className="flex justify-center mt-10"><a className="  md:text-[24px]  my-5  font-bold cursor-pointer hover:text-primary transition-all">View All</a></div>
+        <div className="flex justify-center mt-10"><Link to='/product' className="  md:text-[24px]  mt-5  font-bold cursor-pointer hover:text-primary transition-all">View All</Link></div>
       </div>
     </>
   );

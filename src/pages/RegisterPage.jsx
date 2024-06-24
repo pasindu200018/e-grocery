@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import regImage from "../assets/reg-sife-image.jpg";
-import regBg from "../assets/loginbg.jpg";
+
 
 const RegisterPage = () => {
   return (
@@ -34,7 +34,7 @@ const RegisterPage = () => {
               />
             </div>
             <div className="flex opacity-30 items-center my-5 gap-2">
-              <div className="w-[20px] h-[20px] border border-2 rounded-md border-black"></div>
+              <div className="w-[20px] h-[20px]  border-2 rounded-md border-black"></div>
               <p
                 className="
             text-[16px] font-semibold"
