@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const ProductPage = () => {
+const CartPage = () => {
   const user = useSelector((state) => state.auth.user);
   const [data, setData] = useState([]);
 
@@ -26,7 +26,7 @@ const ProductPage = () => {
   return (
     <div className="max-w-7xl mx-auto min-h-screen pt-1 ">
       <h1 className="md:text-3xl text-xl font-semibold  text-center mt-20  my-5 opacity-65">
-        Products
+        Cart
       </h1>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
         {(data || []).map((item, index) => (
@@ -42,20 +42,14 @@ const ProductPage = () => {
               <p className="md:text-[20px] font-semibold">Rs <span>{item.price}</span></p>
             </div>
             <div>
-              <button onClick={() => addToCart(item._id)} className="bg-primary text-white text-sm md:py-3 py-2 px-6 mt-5 rounded-full font-bold">
-                Add cart
-              </button>
+             
             </div>
           </div>
         </div>
         ))}
-
-       
-  
-       
       </div>
     </div>
   );
 };
 
-export default ProductPage;
+export default CartPage;

@@ -5,6 +5,11 @@ import HomePage from "./pages/HomePage";
 import Layout from "./Layout";
 import ProductPage from "./pages/ProductPage";
 import DashboardPage from "./pages/DashboardPage";
+import OrderPage from "./pages/OrderPage";
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import CartPage from "./pages/CartPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,15 +39,15 @@ function App() {
         },
         {
           path:"/cart",
-          element:<>Cart</>
+          element:<CartPage/>
         },
         {
           path:"/checkout",
           element:<>Checkout</>
         },
         {
-          path:"/orders",
-          element:<>Orders</>
+          path:"/order",
+          element:<OrderPage/>
         },
       ],
     },
@@ -51,6 +56,8 @@ function App() {
 
   return (
     <div>
+      <ToastContainer />
+      
       <RouterProvider router={router} />
     </div>
   )
