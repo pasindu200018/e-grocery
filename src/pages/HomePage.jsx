@@ -5,6 +5,7 @@ import headerBg2 from "../assets/header2.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
   const user = useSelector((state) => state.auth.user);
@@ -20,7 +21,9 @@ const HomePage = () => {
     const data = {userId:user, productId:id, quantity:1}
     const res = await axios.post(`http://localhost:3000/api/cart/create`,
       data);
-    console.log(res.data);
+      if(res.data.success){
+        toast.success("Product added to cart");
+      }
   };
 
   useEffect(() => {
@@ -58,18 +61,7 @@ const HomePage = () => {
         </h1>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {/* cart 1 */}
-          <div className="bg-white rounded-xl p-2 md:p-5 drop-shadow-xl">
-            <img src={headerBg2} className="object-cover md:rounded-2xl rounded-lg" alt=""/>
-            <div className="w-full justify-between flex">
-              <div>
-                <p className="md:text-[20px] my-2 font-bold">Soya Meet</p>
-                <p className="md:text-[20px] font-semibold">Rs 100</p>
-              </div>
-              <div>
-                <button className="bg-primary text-white text-sm md:py-3 py-2 px-6 mt-5 rounded-full font-bold">Add cart</button>
-              </div>
-            </div>
-          </div>
+      
 
           {(data || []).slice(0, 9).map((item, index) => (
           <div key={index} className="bg-white rounded-xl p-2 md:p-5 drop-shadow-xl">

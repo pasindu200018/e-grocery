@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const ProductPage = () => {
   const user = useSelector((state) => state.auth.user);
@@ -8,7 +9,7 @@ const ProductPage = () => {
 
   const getAllProduct = async () => {
     const res = await axios.get("http://localhost:3000/api/product/getall");
-    console.log(res.data);
+
     setData(res.data.products);
   };
 
@@ -16,7 +17,10 @@ const ProductPage = () => {
     const data = {userId:user, productId:id, quantity:1}
     const res = await axios.post(`http://localhost:3000/api/cart/create`,
       data);
-    console.log(res.data);
+  
+    if(res.data.success){
+      toast.success("Product added to cart");
+    }
   };
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const DashboardPage = () => {
   const [name, setName] = useState("");
-  const [image_url, setImage_url] = useState("");
+  const [image_url, setImage_url] = useState("https://res.cloudinary.com/dldtrjalo/image/upload/v1719650373/default-store-350x350_ef9nvw.jpg");
   const [price, setPrice] = useState("0");
   const [qty, setQty] = useState("0");
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const DashboardPage = () => {
 
   const createProduct = async () => {
     setLoading(true);
-    if(!name || !image_url || !price || !qty){
+    if(!name || !price || !qty){
       toast.error("Please fill all the fields");
       setLoading(false);
       return

@@ -34,9 +34,11 @@ const LoginPage = () => {
         password,
       });
       if (res.data.status === "success") {
+        setIsLoading(false);
         toast.success(res.data.message);
         dispatch(setUser(res.data));
       } else if (res.data.status === "failed") {
+        setIsLoading(false);
         toast.error(res.data.message);
       }
       setIsLoading(false);
@@ -44,6 +46,7 @@ const LoginPage = () => {
       console.log(error);
       setIsLoading(false);
     }
+    setIsLoading(false);
   };
 
   return (
