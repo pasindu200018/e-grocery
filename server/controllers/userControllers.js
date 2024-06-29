@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 
 export const createUser = async (req, res) => {
   try {
-    const {email, password, username} = req.body;
+    const { email, password, username } = req.body;
     const findUser = await User.findOne({ email: email });
     console.log(findUser);
     if (findUser) {
@@ -18,7 +18,7 @@ export const createUser = async (req, res) => {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password, salt);
 
-      const newUser = await User.create({username, email, password: hash});
+      const newUser = await User.create({ username, email, password: hash });
       newUser.save();
       res
         .json({
@@ -40,6 +40,7 @@ export const loginUser = async (req, res) => {
   try {
     const user = req.body;
     const userFind = await User.findOne({ email: user.email });
+
     if (userFind) {
       const validity = bcrypt.compareSync(user.password, userFind.password);
       if (validity) {
@@ -49,7 +50,7 @@ export const loginUser = async (req, res) => {
           },
           process.env.JWT_SECRET
         );
-    const {password , ...rest} = userFind._doc
+        const { password, ...rest } = userFind._doc;
 
         res.status(200).json({
           status: "success",
@@ -63,6 +64,11 @@ export const loginUser = async (req, res) => {
           message: "Invalid credentials",
         });
       }
+    }else{
+      res.status(200).json({
+        status: "failed",
+        message: "User not found",
+      });
     }
   } catch (error) {
     res.status(500).json({
